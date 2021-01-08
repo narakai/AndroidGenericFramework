@@ -31,3 +31,8 @@ fun ImageView.loadImage(url: String?, placeholder: Drawable?, error: Drawable?) 
                 .error(error ?: context.getDrawable(R.mipmap.ic_launcher))
                 .transition(DrawableTransitionOptions.withCrossFade(DrawableCrossFadeFactory.Builder().setCrossFadeEnabled(true).build()))
                 .into(this)
+
+@BindingAdapter(value = ["onClickWithDebouncing"], requireAll = false)
+fun onClickWithDebouncing(view: View?, clickListener: View.OnClickListener?) {
+    ClickUtils.applySingleDebouncing(view, clickListener)
+}

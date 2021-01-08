@@ -35,4 +35,10 @@ class SplashActivity : BaseActivity<ActivitySplashBinding, SplashViewModel>() {
         }
     }
 
+    class Proxy {
+        fun onClick(){
+            
+        }
+    }
+
 }
