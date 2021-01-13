@@ -14,7 +14,9 @@ import com.tanjiajun.androidgenericframework.ui.main.viewmodel.SplashViewModel
 import com.tanjiajun.androidgenericframework.ui.repository.fragment.RepositoryFragment
 import com.tanjiajun.androidgenericframework.ui.repository.viewmodel.RepositoryViewModel
 import com.tanjiajun.androidgenericframework.ui.user.activity.PersonalCenterActivity
+import com.tanjiajun.androidgenericframework.ui.user.activity.RegisterAndLoginActivity
 import com.tanjiajun.androidgenericframework.ui.user.fragment.LoginFragment
+import com.tanjiajun.androidgenericframework.ui.user.fragment.LoginFragment2
 import com.tanjiajun.androidgenericframework.ui.user.viewmodel.LoginViewModel
 import com.tanjiajun.androidgenericframework.ui.user.viewmodel.PersonalCenterViewModel
 import com.tencent.mmkv.MMKV
@@ -79,13 +81,21 @@ val mainModule = module {
 }
 
 val userModule = module {
-    scope<LoginFragment> {
-        viewModel { LoginViewModel(get()) }
-    }
+//    scope<LoginFragment> {
+//        viewModel { LoginViewModel(get()) }
+//    }
+//
+//    scope<LoginFragment2> {
+//        viewModel { LoginViewModel(get()) }
+//    }
 
     scope<PersonalCenterActivity> {
         viewModel { PersonalCenterViewModel(get()) }
     }
+}
+
+val loginInfoModule = module {
+    viewModel { LoginViewModel(get()) }
 }
 
 val githubRepositoryModule = module {
@@ -100,6 +110,7 @@ val applicationModules = listOf(
         repositoryModule,
         mainModule,
         userModule,
+        loginInfoModule,
         githubRepositoryModule
 )
 

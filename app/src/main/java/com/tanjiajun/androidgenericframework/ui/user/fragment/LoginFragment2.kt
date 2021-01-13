@@ -7,7 +7,6 @@ import androidx.lifecycle.Observer
 import com.tanjiajun.androidgenericframework.FRAGMENT_TAG_LOGIN
 import com.tanjiajun.androidgenericframework.R
 import com.tanjiajun.androidgenericframework.databinding.FragmentLoginBinding
-import com.tanjiajun.androidgenericframework.ui.BaseActivity
 import com.tanjiajun.androidgenericframework.ui.BaseFragment
 import com.tanjiajun.androidgenericframework.ui.main.activity.MainActivity
 import com.tanjiajun.androidgenericframework.ui.user.viewmodel.LoginViewModel
@@ -20,7 +19,7 @@ import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 /**
  * Created by TanJiaJun on 2019-07-29.
  */
-class LoginFragment
+class LoginFragment2
     : BaseFragment<FragmentLoginBinding, LoginViewModel>(), LoginViewModel.Handlers {
 
     override val layoutRes: Int = R.layout.fragment_login
@@ -29,9 +28,9 @@ class LoginFragment
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) =
             with(binding) {
-                lifecycleOwner = this@LoginFragment
-                viewModel = this@LoginFragment.viewModel
-                handlers = this@LoginFragment
+                lifecycleOwner = this@LoginFragment2
+                viewModel = this@LoginFragment2.viewModel
+                handlers = this@LoginFragment2
             }.also {
                 registerLoadingProgressBarEvent()
                 registerSnackbarEvent()
@@ -55,13 +54,11 @@ class LoginFragment
     @ExperimentalCoroutinesApi
     @FlowPreview
     override fun onLoginClick(view: View) {
-        val ac = activity as BaseActivity<*, *>
-        ac.addFragment(LoginFragment2.newInstance())
-//        viewModel.login()
+        viewModel.login()
     }
 
     companion object {
-        fun newInstance() = LoginFragment()
+        fun newInstance() = LoginFragment2()
     }
 
 }

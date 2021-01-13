@@ -18,8 +18,8 @@ data class LoginRequestData(
                 LoginRequestData(
                         scopes = listOf("user", "repo", "gist", "notifications"),
                         note = BuildConfig.APPLICATION_ID,
-                        clientId = BuildConfig.GITHUB_CLIENT_ID,
-                        clientSecret = BuildConfig.GITHUB_CLIENT_SECRET
+                        clientId = "BuildConfig.GITHUB_CLIENT_ID",
+                        clientSecret = "BuildConfig.GITHUB_CLIENT_SECRET"
                 )
     }
 
