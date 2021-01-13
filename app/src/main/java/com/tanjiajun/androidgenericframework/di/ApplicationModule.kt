@@ -95,7 +95,9 @@ val userModule = module {
 }
 
 val loginInfoModule = module {
-    viewModel { LoginViewModel(get()) }
+    scope<RegisterAndLoginActivity> {
+        viewModel { LoginViewModel(get()) }
+    }
 }
 
 val githubRepositoryModule = module {
